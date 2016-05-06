@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link   href="<?php echo $this->baseUrl('visual/metro/css/metro.css') ?>" rel="stylesheet"/>
+  <link   href="<?php echo $this->baseUrl('visual/metro/css/metro-responsive.css') ?>" rel="stylesheet"/>
+  <link   href="<?php echo $this->baseUrl('visual/metro/css/metro-icons.css') ?>" rel="stylesheet"/>
+  <script src="<?php echo $this->baseUrl('visual/jquery.min.js')?>"></script>
+  <script src="<?php echo $this->baseUrl('visual/metro/js/metro.js')?>"></script>
+  <title>IMGBank</title>
+</head>
+<?php echo $this->headScript(); ?>
+<body class="bg-gray">
+  <!-- Fixed navbar -->
+  <div class="app-bar bg-grayDarker">
+    <div class="app-bar-element place-left">
+      <span>Tica</span>
+    </div>
+    <?php if($_SESSION){?>
+      <div class="app-bar-element place-right bg-hover-black">
+        <a href="<?php echo $this->baseUrl('index/unset')?>" class="fg-white"><span class="mif-exit mif-2x"></span></a>
+
+      </div>
+      <div class="app-bar-element place-right bg-hover-black">
+        <a href="" class="fg-white"><span class="mif-user mif-2x"></span></a>
+      </div>
+
+
+
+      <?php }else{?>
+        <div class="app-bar-element place-right bg-hover-black">
+          <a class="dropdown-toggle fg-white" href="#"><span class="mif-enter"></span>Enter</a>
+          <div class="app-bar-drop-container bg-white fg-dark place-right"
+          data-role="dropdown" data-no-close="true">
+          <div class="padding20">
+            <form data-show-required-state="false" data-role="validator" action="<?php echo $this->baseUrl('index/logar')?>" method="post" id="login-form">
+              <h4 class="text-light">Login</h4>
+              <div class="input-control text">
+                <span class="mif-user prepend-icon"></span>
+                <input
+                data-validate-func="required"
+                placeholder="Usuario"
+                type="text" name="user">
+                <span class="input-state-error mif-warning"></span>
+              </div>
+              <div class="input-control text">
+                <span class="mif-lock prepend-icon"></span>
+                <input
+                data-validate-func="required"
+                placeholder="Senha"
+                type="password" name="pass">
+                <span class="input-state-error mif-warning"></span>
+              </div>
+              <label class="input-control checkbox small-check">
+                <input type="checkbox">
+                <span class="check"></span>
+                <span class="caption">Me lembre</span>
+              </label>
+              <div class="form-actions">
+                <input class="button" type="submit" value="Login">
+                <button class="button link">Esqueci minha senha</button>
+                <button class="button link">Não tem conta?</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div><?php } ?>
+    </div>
+    <div class="container"  style="margin-top: 60px;">
+      <?php echo $this->layout()->content; ?>
+    </div>
+  </body>
+  </html>
