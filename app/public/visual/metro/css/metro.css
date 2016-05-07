@@ -6269,7 +6269,7 @@ textarea.required {
 }
 .input-control.modern {
   position: relative;
-  width: 12.25rem;
+  width: 28rem;
   height: 3rem;
   display: inline-block;
   margin: .625rem 0;
@@ -6285,7 +6285,7 @@ textarea.required {
   background-color: transparent;
   outline: none;
   font-size: 1rem;
-  padding-bottom: .5rem;
+  padding-bottom: .1rem;
   padding-left: 0;
   width: 100%;
   z-index: 2;
@@ -6328,10 +6328,10 @@ textarea.required {
   top: 8px;
 }
 .input-control.modern.iconic {
-  margin-left: 32px;
+  margin-left: 0px;
 }
 .input-control.modern.iconic .icon {
-  width: 24px;
+  width: 22px;
   height: 24px;
   font-size: 24px;
   line-height: 1;

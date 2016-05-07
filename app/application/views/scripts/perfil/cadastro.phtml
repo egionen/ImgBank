@@ -1,0 +1,55 @@
+
+<div class="flex-grid">
+  <div class="row">
+    <form  data-role="validator" action="<?php echo $this->baseUrl('perfil/cadastrar')?>" method="post">
+      <div class="cell">
+        <div class="input-control modern text">
+          <input type="text" name="nome" placeholder="Nome" class="fg-grayLighter">
+          <span class="informer fg-white">Insira seu nome completo</span>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="input-control modern text ">
+          <input type="text" name="email" placeholder="Email" id="email" class="fg-grayLighter">
+          <span class="informer fg-white">Insira um email válido</span>
+          <div id="erroEmail">
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="input-control modern text iconic">
+          <input type="text" name="user" placeholder="Usuário" id="user" class="fg-grayLighter">
+          <span class="informer fg-white">Insira um nome de usuário válido</span>
+          <span class="icon mif-user"></span>
+          <div id="erroUser">
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="input-control modern text iconic">
+          <input
+          data-validate-func="minlength"
+          data-validate-arg="5"
+          type="pass" name="pass" placeholder="Senha" class="fg-grayLighter">
+          <span class="informer fg-white">Deve ter no minimo 5 dígitos</span>
+          <span class="icon mif-lock"></span>
+        </div>
+      </div>
+      <div class="cell"><br>
+          <input class="fg-black" type="submit" name="name" value="Cadastrar">
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+  $("#user").change(function(){
+    $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificaruser/user/');?>' + $('#user').val());
+    $('#resultado').html(data);
+  });
+  $("#email").change(function(){
+    $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificaremail/email/');?>' + $('#email').val());
+    $('#resultado').html(data);
+  });
+});
+</script>

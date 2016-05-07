@@ -16,7 +16,7 @@
     <div class="app-bar-element place-left">
       <span>Tica</span>
     </div>
-    <?php if($_SESSION){?>
+    <?php if(!empty($_SESSION['user'])){?>
       <div class="app-bar-element place-right bg-hover-black">
         <a href="<?php echo $this->baseUrl('index/unset')?>" class="fg-white"><span class="mif-exit mif-2x"></span></a>
 
@@ -59,7 +59,7 @@
               <div class="form-actions">
                 <input class="button" type="submit" value="Login">
                 <button class="button link">Esqueci minha senha</button>
-                <button class="button link">Não tem conta?</button>
+                <a href="<?php echo $this->baseUrl('perfil/cadastro')?>" class="button link">Não tem conta?</a>
               </div>
             </form>
           </div>
@@ -70,4 +70,4 @@
       <?php echo $this->layout()->content; ?>
     </div>
   </body>
-  </html>
+</html>
