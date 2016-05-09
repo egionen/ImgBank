@@ -12952,8 +12952,7 @@ input[type="submit"].link:active {
 }
 .notify-container {
   position: fixed;
-  top: 0;
-  right: 0;
+  bottom: 0;
   width: auto;
   z-index: 1061;
 }

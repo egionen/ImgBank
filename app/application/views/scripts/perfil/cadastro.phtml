@@ -1,55 +1,83 @@
-
-<div class="flex-grid">
-  <div class="row">
-    <form  data-role="validator" action="<?php echo $this->baseUrl('perfil/cadastrar')?>" method="post">
-      <div class="cell">
-        <div class="input-control modern text">
-          <input type="text" name="nome" placeholder="Nome" class="fg-grayLighter">
-          <span class="informer fg-white">Insira seu nome completo</span>
+<div class="flex-grid fg-white">
+  <div class="row cells2 flex-just-end">
+    <div class="cell colspan7">
+      <h3>Faça seu cadastro hoje!</h3>
+      <h4>E comece a subir e compartilhar suas imagens!</h4>
+      <form  data-role="validator" action="<?php echo $this->baseUrl('perfil/cadastrar')?>" method="post">
+        <div class="cell">
+          <div class="input-control modern text">
+            <input type="text" name="nome" placeholder="Nome" class="fg-grayLighter">
+            <span class="informer fg-white">Insira seu nome completo</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="input-control modern text ">
+            <input type="text" name="email" placeholder="Email" id="email" class="fg-grayLighter">
+            <span class="informer fg-white">Insira um email válido</span>
+            <div id="erroEmail">
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="input-control modern text iconic">
+            <input type="text" name="user" placeholder="Usuário" id="user" class="fg-grayLighter">
+            <span class="informer fg-white">Insira um nome de usuário válido</span>
+            <span class="icon mif-user"></span>
+            <div id="erroUser">
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="input-control modern text iconic">
+            <input
+            data-validate-func="minlength"
+            data-validate-arg="5"
+            type="password" name="pass" placeholder="Senha" class="fg-grayLighter">
+            <span class="informer fg-white">Deve ter no minimo 5 dígitos</span>
+            <span class="icon mif-lock"></span>
+          </div>
+        </div>
+        <div class="cell"><br>
+          <input class="button success block-shadow-success text-shadow fg-white" type="submit" name="name" value="Cadastrar">
+        </div>
+      </form>
+    </div>
+    <div class="cell">
+      <div class="tile-wide">
+        <div class="tile-content iconic">
+          <img src="http://www.imagenstop.blog.br/wp-content/gallery/por-do-sol/Wallpapers-do-por-do-Sol.jpg"/>
         </div>
       </div>
-      <div class="cell">
-        <div class="input-control modern text ">
-          <input type="text" name="email" placeholder="Email" id="email" class="fg-grayLighter">
-          <span class="informer fg-white">Insira um email válido</span>
-          <div id="erroEmail">
+      <div class="tile">
+        <div class="tile-content">
+          <img src="https://pbs.twimg.com/profile_images/1196566139/CRV_-_Urso_comptd.jpg"/>
+        </div>
+      </div>
+      <div class="tile-small">
+        <div class="tile-content">
+          <img src="https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg"/>
+        </div>
+      </div>
+      <div class="tile-small">
+        <div class="tile-content">
+          <div class="image-container">
+            <div class="frame">
+              <img src="http://imagens.canaltech.com.br/53126.72716-Imagem-Exemplo-Nitidez-Inteligente.jpg"/>
+            </div>
           </div>
         </div>
       </div>
-      <div class="cell">
-        <div class="input-control modern text iconic">
-          <input type="text" name="user" placeholder="Usuário" id="user" class="fg-grayLighter">
-          <span class="informer fg-white">Insira um nome de usuário válido</span>
-          <span class="icon mif-user"></span>
-          <div id="erroUser">
-          </div>
-        </div>
-      </div>
-      <div class="cell">
-        <div class="input-control modern text iconic">
-          <input
-          data-validate-func="minlength"
-          data-validate-arg="5"
-          type="pass" name="pass" placeholder="Senha" class="fg-grayLighter">
-          <span class="informer fg-white">Deve ter no minimo 5 dígitos</span>
-          <span class="icon mif-lock"></span>
-        </div>
-      </div>
-      <div class="cell"><br>
-          <input class="fg-black" type="submit" name="name" value="Cadastrar">
-      </div>
-    </form>
+    </div>
   </div>
-</div>
-<script type="text/javascript">
-$(function(){
-  $("#user").change(function(){
-    $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificaruser/user/');?>' + $('#user').val());
-    $('#resultado').html(data);
+  <script type="text/javascript">
+  $(function(){
+    $("#user").change(function(){
+      $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificaruser/user/');?>' + $('#user').val());
+      $('#resultado').html(data);
+    });
+    $("#email").change(function(){
+      $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificaremail/email/');?>' + $('#email').val());
+      $('#resultado').html(data);
+    });
   });
-  $("#email").change(function(){
-    $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificaremail/email/');?>' + $('#email').val());
-    $('#resultado').html(data);
-  });
-});
-</script>
+  </script>
