@@ -9,6 +9,10 @@ class PerfilController extends Zend_Controller_Action
 
 
   }
+  public function perfilAction()
+  {
+
+  }
   public function verificaruserAction(){
 
     $this->_helper->layout->disableLayout();
@@ -39,16 +43,32 @@ class PerfilController extends Zend_Controller_Action
     $dados = $this->_getAllParams();
     $modelUser = new Application_Model_User();
     $modelUser->gravar($dados);
-    $row = $modelUser->fetchRow('user = "'. $dados['user'] .'" and pass = "'.$dados['pass'].'"');
-    $_SESSION['id_user'] = $row['id_user'];
-    $_SESSION['user'] = $row['user'];
-    $_SESSION['email'] = $row['email'];
-    $_SESSION['nome'] = $row['nome'];
+    $this->atualizarDados($dados);
     $_SESSION['mensagem'] = "<script>$.Notify({
       caption: 'Logado',
       content: 'Bem Vindo você foi logado com sucesso',
       type: 'success'
     });</script>";
     $this->redirect('index');
+  }
+  public function editarAction(){
+    $dados = $this->_getAllParams();
+    unset($dados['controller']);
+    unset($dados['action']);
+    unset($dados['module']);
+    $modelUser = new Application_Model_User();
+    $modelUser->update($dados, "id_user = ".$_SESSION['id_user']);
+    $this->atualizarDados($dados);
+    $this->redirect('index');
+  }
+  public function atualizarDados($dados){
+    $modelUser = new Application_Model_User();
+    $row = $modelUser->fetchRow('user = "'. $dados['user'] .'" and pass = "'.$dados['pass'].'"');
+    $_SESSION['id_user'] = $row['id_user'];
+    $_SESSION['user'] = $row['user'];
+    $_SESSION['email'] = $row['email'];
+    $_SESSION['nome'] = $row['nome'];
+    $_SESSION['pass'] = $row['pass'];
+
   }
 }
