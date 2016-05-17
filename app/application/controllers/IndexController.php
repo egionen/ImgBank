@@ -21,7 +21,7 @@ class IndexController extends Zend_Controller_Action
         $_SESSION['email'] = $row['email'];
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['pass'] = $row['pass'];
-        
+
         $_SESSION['mensagem'] = "<script>$.Notify({
           caption: 'Logado',
           content: 'Bem Vindo você foi logado com sucesso',
@@ -37,6 +37,6 @@ class IndexController extends Zend_Controller_Action
         $this->redirect('index');    }
       }
       public function unsetAction(){
-
+        
       }
     }

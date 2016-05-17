@@ -897,6 +897,16 @@ a.tag {
   position: relative;
   margin: .625rem 0;
 }
+.index{
+  margin-right:100px;
+  margin-left:100px;
+  margin-top:60px;
+  border-style:solid;
+  border-width:10px;
+  border-color:	#333333;
+  background-color: #333333;
+  border-radius:15px;
+}
 .grid:before,
 .grid:after {
   display: table;
@@ -1953,7 +1963,8 @@ a.tag {
   -webkit-flex: 0 0 91.66666663%;
   flex: 0 0 91.66666663%;
 }
-.flex-grid .row .cell.colspan12 {
+.flex-
+ .row .cell.colspan12 {
   -webkit-flex: 0 0 99.99999996%;
   flex: 0 0 99.99999996%;
 }

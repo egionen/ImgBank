@@ -12,21 +12,17 @@
 <?php echo $this->headScript(); ?>
 <body class="bg-gray">
   <!-- Fixed navbar -->
-  <div class="app-bar bg-grayDarker">
+  <div class="app-bar bg-grayDarker" style="padding-left:200px;padding-right:200px">
     <div class="app-bar-element place-left bg-hover-black">
       <a href="<?php echo $this->baseUrl('index')?>"><img src="<?php echo $this->baseUrl('visual/logo.png')?>" style="height:50px"/></a>
     </div>
     <?php if(!empty($_SESSION['user'])){?>
       <div class="app-bar-element place-right bg-hover-black">
         <a href="<?php echo $this->baseUrl('index/unset')?>" class="fg-white"><span class="mif-exit mif-2x"></span></a>
-
       </div>
       <div class="app-bar-element place-right bg-hover-black">
         <a href="<?php echo $this->baseUrl('perfil/perfil')?>" class="fg-white"><span class="mif-user mif-2x"></span></a>
       </div>
-
-
-
       <?php }else{?>
         <div class="app-bar-element place-right bg-hover-black">
           <a class="dropdown-toggle fg-white" href="#"><span class="mif-enter"></span>Entrar</a>
