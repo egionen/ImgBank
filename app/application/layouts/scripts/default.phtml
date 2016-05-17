@@ -16,7 +16,11 @@
     <div class="app-bar-element place-left bg-hover-black">
       <a href="<?php echo $this->baseUrl('index')?>"><img src="<?php echo $this->baseUrl('visual/logo.png')?>" style="height:50px"/></a>
     </div>
+
     <?php if(!empty($_SESSION['user'])){?>
+      <div class="app-bar-element place-left bg-hover-grayDarker">
+        <button class="button loading-cube lighten primary" onclick="showDialog('#dialog')">Upload</button>
+      </div>
       <div class="app-bar-element place-right bg-hover-black">
         <a href="<?php echo $this->baseUrl('index/unset')?>" class="fg-white"><span class="mif-exit mif-2x"></span></a>
       </div>
@@ -65,5 +69,34 @@
     <div class="container"  style="margin-top: 60px;">
       <?php echo $this->layout()->content; ?>
     </div>
+    <div style="width: auto; height: auto; visibility: visible; left: 661.5px; top: 202.5px;" data-role="dialog" id="dialog" class="padding20 dialog" data-close-button="true" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true">
+      <div class="grid">
+        <div class="row">
+          <div class="cell">
+            <form action="index.html" method="post">
+
+
+    <div class="input-control file" data-role="input">
+        <input type="file">
+        <button class="button"><span class="mif-folder"></span></button>
+    </div>
+
+
+            </form>
+          </div>
+          <div class="cell">
+            tica
+          </div>
+
+        </div>
+      </div>
+
+        <span class="dialog-close-button"></span></div>
   </body>
+  <script>
+    function showDialog(id){
+        var dialog = $(id).data('dialog');
+        dialog.open();
+    }
+</script>
 </html>
