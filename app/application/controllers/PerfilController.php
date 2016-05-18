@@ -71,4 +71,12 @@ class PerfilController extends Zend_Controller_Action
     $_SESSION['pass'] = $row['pass'];
 
   }
+  public function uploadAction(){
+
+    $origem = $_FILES['foto']['tmp_name'];
+    print_r($_FILES);
+
+
+
+  }
 }
