@@ -1,140 +1,142 @@
 <div class="grid">
-  <div class="row">
-    <div class="cell">
-      <div class="panel" data-role="panel">
-        <div class="heading bg-black">
-          <span class="title">Dados da Conta</span>
-        </div>
-        <div class="content bg-grayDarker fg-white">
-          <div class="row cells3">
-            <div class="cell">
-              <div class="image-container rounded handing ani" style="height:200px;width:200px">
-                <div class="frame bd-black">
-                  <img src="http://msalx.veja.abril.com.br/2015/04/25/2141/pe6Cx/jared-leto-caracterizado-de-coringa-em-primeira-foto-oficial-de-esquadrao-suicida-original.jpeg?1430008851"/>
+    <div class="row">
+        <div class="cell">
+            <div class="panel" data-role="panel">
+                <div class="heading bg-black">
+                    <span class="title">Dados da Conta</span>
                 </div>
-              </div>
-              <div class="cell" style="padding-left:35px;padding-top:15px;border-top-style:solid;border-top-width:20px">
-                <h4 style="border-bottom-style:solid">Nível : 35</h4>
-                <h6>Uploads : mais de 9000</h6>
-                <h6>Usuário desde : 20/03/1900</h6>
-                <h6>Tipo de Conta : Premium</h6>
-              </div>
-            </div>
-            <div class="cell flex-just-center" style="padding-bottom: 50px;margin-left: 80px;">
-              <h4>Dados do Perfil</h4>
-              <form id="dados" action="<?php echo $this->baseUrl('perfil/editar')?>" method="post">
-                <div class="input-control modern text iconic">
-                  <input class="fg-white" type="text" name="user" value="<?php echo $_SESSION['user'] ?>" required>
-                  <span class="icon mif-user"></span>
-                </div>
-                <div class="input-control modern text iconic">
-                  <input class="fg-white" type="text" name="email" value="<?php echo $_SESSION['email'] ?>" required>
-                  <span class="icon mif-mail"></span>
-                </div>
-                <div class="row">
-                  <div class="cell">
-                    <h4 style="border-bottom-style:groove;border-width:6px">Alterar Senha</h4>
-                    <div class="input-control modern text iconic">
-                      <input class="fg-white" type="password" value="<?php echo $_SESSION['pass'] ?>"
-                      data-validate-func="minlength"
-                      data-validate-arg="5"
-                      required>
-                      <span class="icon mif-lock"></span>
-                      <span class="label fg-white">Senha</span>
-                      <span class="informer fg-white">Mínimo 5 dígitos</span>
-                      <span class="input-state-error mif-warning"></span>
-                      <span class="input-state-success mif-checkmark"></span>
+                <div class="content bg-grayDarker fg-white">
+                    <div class="row cells3">
+                        <div class="cell">
+                            <div class="image-container rounded handing ani" style="height:200px;width:200px">
+                                <div class="frame bd-black">
+                                    <img src="http://msalx.veja.abril.com.br/2015/04/25/2141/pe6Cx/jared-leto-caracterizado-de-coringa-em-primeira-foto-oficial-de-esquadrao-suicida-original.jpeg?1430008851" />
+                                </div>
+                            </div>
+                            <div class="cell" style="padding-left:35px;padding-top:15px;border-top-style:solid;border-top-width:20px">
+                                <h4 style="border-bottom-style:solid">Nível : 35</h4>
+                                <h6>Uploads : mais de 9000</h6>
+                                <h6>Usuário desde : 20/03/1900</h6>
+                                <h6>Tipo de Conta : Premium</h6>
+                            </div>
+                        </div>
+                        <div class="cell flex-just-center" style="padding-bottom: 50px;margin-left: 80px;">
+                            <h4>Dados do Perfil</h4>
+                            <form id="dados" action="<?php echo $this->baseUrl('perfil/editar')?>" method="post">
+                                <div class="input-control modern text iconic">
+                                    <input class="fg-white" type="text" name="user" value="<?php echo $_SESSION['user'] ?>" required>
+                                    <span class="icon mif-user"></span>
+                                </div>
+                                <div class="input-control modern text iconic">
+                                    <input class="fg-white" type="text" name="email" value="<?php echo $_SESSION['email'] ?>" required>
+                                    <span class="icon mif-mail"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="cell">
+                                        <h4 style="border-bottom-style:groove;border-width:6px">Alterar Senha</h4>
+                                        <div class="input-control modern text iconic">
+                                            <input class="fg-white" type="password" value="<?php echo $_SESSION['pass'] ?>" data-validate-func="minlength" data-validate-arg="5" required>
+                                            <span class="icon mif-lock"></span>
+                                            <span class="label fg-white">Senha</span>
+                                            <span class="informer fg-white">Mínimo 5 dígitos</span>
+                                            <span class="input-state-error mif-warning"></span>
+                                            <span class="input-state-success mif-checkmark"></span>
+                                        </div>
+                                        <div class="input-control modern text iconic">
+                                            <input class="fg-white" type="password" name="pass" data-validate-func="minlength" data-validate-arg="5" required>
+                                            <span class="label fg-white">Confirme sua Senha</span>
+                                            <span class="informer fg-white">Mínimo 5 dígitos</span>
+                                            <span class="icon mif-lock"></span>
+                                            <span class="input-state-error mif-warning"></span>
+                                            <span class="input-state-success mif-checkmark"></span>
+                                        </div>
+                                        <input type="submit">
+                            </form>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-control modern text iconic">
-                      <input class="fg-white" type="password" name="pass"
-                      data-validate-func="minlength"
-                      data-validate-arg="5"
-                      required>
-                      <span class="label fg-white">Confirme sua Senha</span>
-                      <span class="informer fg-white">Mínimo 5 dígitos</span>
-                      <span class="icon mif-lock"></span>
-                      <span class="input-state-error mif-warning"></span>
-                      <span class="input-state-success mif-checkmark"></span>
-                    </div>
-                    <input type="submit">
-                  </form>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="cell colspan12">
-      <div class="panel collapsible collapsed" data-role="panel">
-        <div class="heading bg-black">
-          <span class="title">Uploads</span>
+    <div class="row">
+        <div class="cell colspan12">
+            <div class="panel collapsible collapsed" data-role="panel">
+                <div class="heading bg-black">
+                    <span class="title">Uploads</span>
+                </div>
+                <div class="content">
+                    <p>
+                        MUITAS IMAGENS
+                    </p>
+                    <p>
+                        MUITAS IMAGENS
+                    </p>
+                    <p>
+                        MUITAS IMAGENS
+                    </p>
+                    <p>
+                        MUITAS IMAGENS
+                    </p>
+                    <p>
+                        MUITAS IMAGENS
+                    </p>
+                    <p>
+                        MUITAS IMAGENS
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="content">
-          <p>
-            MUITAS IMAGENS
-          </p>
-          <p>
-            MUITAS IMAGENS
-          </p><p>
-            MUITAS IMAGENS
-          </p><p>
-            MUITAS IMAGENS
-          </p><p>
-            MUITAS IMAGENS
-          </p><p>
-            MUITAS IMAGENS
-          </p>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="cell colspan12">
-      <div class="panel collapsible collapsed" data-role="panel">
-        <div class="heading bg-black">
-          <span class="title">Outras Contas</span>
-        </div>
-        <div class="content"  style="padding-top:30px">
-          <div class="row">
-            <div class="cell colspan8">
-              <h5>Aqui você adiciona outras contas</h5>
+    <div class="row">
+        <div class="cell colspan12">
+            <div class="panel collapsible collapsed" data-role="panel">
+                <div class="heading bg-black">
+                    <span class="title">Outras Contas</span>
+                </div>
+                <div class="content" style="padding-top:30px">
+                    <div class="row">
+                        <div class="cell colspan8">
+                            <h5>Aqui você adiciona outras contas</h5>
+                        </div>
+                        <div class="cell colspan4">
+                            <a href="#"><img src="http://www.claimony.com/assets/img/lp/steam-button-big.png" style="height:60px" /></a>
+                            <br>
+                            <a href="#"><img src="http://freecoups.net/images/login-button.png" style="height:60px" /></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="cell colspan4">
-              <a href="#"><img src="http://www.claimony.com/assets/img/lp/steam-button-big.png" style="height:60px"/></a><br>
-              <a href="#"><img src="http://freecoups.net/images/login-button.png" style="height:60px"/></a>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="cell colspan12">
-      <div class="panel collapsible collapsed" data-role="panel">
-        <div class="heading bg-black">
-          <span class="title">Upgrade de Conta</span>
-        </div>
-        <div class="content"  style="padding-bottom:10px">
-          <div class="row">
-            <div class="cell colspan6" style="padding-top:10px;padding-left:20px">
-              <h4>Faça seu Upgrade</h4>
-              <h6>Mais espaço!</h6>
-              <h6>Mais uploads por dia!</h6>
-              <h3>Por Apenas:</h3>
-              <h5>R$ 12,50/ano</h5>
+    <div class="row">
+        <div class="cell colspan12">
+            <div class="panel collapsible collapsed" data-role="panel">
+                <div class="heading bg-black">
+                    <span class="title">Upgrade de Conta</span>
+                </div>
+                <div class="content" style="padding-bottom:10px">
+                    <div class="row">
+                        <div class="cell colspan6" style="padding-top:10px;padding-left:20px">
+                            <h4>Faça seu Upgrade</h4>
+                            <h6>Mais espaço!</h6>
+                            <h6>Mais uploads por dia!</h6>
+                            <h3>Por Apenas:</h3>
+                            <h5>R$ 12,50/ano</h5>
+                        </div>
+                        <div class="cell colspan6" style="margin-top:10px">
+                            <h4>Adquira já</h4>
+                            <a href="#"><img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" style="height:60px" /></a>
+                            <a href="#"><img src="http://www.boacompra.eu/blog/fotos/6933_BoaCompra_Box_FLAT1.png" style="height:60px" /></a>
+                            <a href="#"><img src="http://segundaviadecontas.com/wp-content/uploads/2015/09/atualizar-boleto.png" style="height:60px" /></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="cell colspan6" style="margin-top:10px">
-              <h4>Adquira já</h4>
-              <a href="#"><img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" style="height:60px" /></a>
-              <a href="#"><img src="http://www.boacompra.eu/blog/fotos/6933_BoaCompra_Box_FLAT1.png" style="height:60px"/></a>
-              <a href="#"><img src="http://segundaviadecontas.com/wp-content/uploads/2015/09/atualizar-boleto.png" style="height:60px"/></a>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+<!-- TODO: implementar foto de perfil-->
+<!-- TODO: Consertar FORM do perfil-->
+

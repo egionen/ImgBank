@@ -4,14 +4,9 @@ class IndexController extends Zend_Controller_Action
 {
 
 
-  public function indexAction()
-  {
-
-
-
+  public function indexAction(){
   }
-  public function logarAction()
-  {
+  public function logarAction(){
       $dados = $this->_getAllParams();
       $modelUser = new Application_Model_User();
       $row = $modelUser->fetchRow('user = "'. $dados['user'] .'" and pass = "'.$dados['pass'].'"');
@@ -36,7 +31,8 @@ class IndexController extends Zend_Controller_Action
         });</script>";
         $this->redirect('index');    }
       }
-      public function unsetAction(){
-        
-      }
-    }
+  public function unsetAction(){
+          session_unset();
+          $this->redirect('index');
+          die;
+      }}
