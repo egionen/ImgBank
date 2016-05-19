@@ -78,9 +78,10 @@
       }
       public function uploadAction(){
 
-        $origem = $_FILES['foto']['tmp_name'];
-        print_r($_FILES);
 
 
+        }
 
-      }}
+
+      }
+//TODO : Implementar Upload baseado no projeto teste !!!!!!!
