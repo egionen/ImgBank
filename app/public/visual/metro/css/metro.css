@@ -194,6 +194,10 @@ body {
   line-height: 1.1;
   font-weight: 400;
   font-style: normal;
+  background-image: url('fundo.png');
+  
+  background-attachment: fixed;
+  background-size: 1600px;
 }
 #font .light {
   font-weight: 300;

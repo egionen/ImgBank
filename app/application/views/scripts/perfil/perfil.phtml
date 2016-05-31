@@ -7,76 +7,76 @@
                 </div>
                 <div class="content bg-grayDarker fg-white">
                     <div class="row cells3">
-                           <div class="cell">
+                        <div class="cell">
                             <a onclick="showDialog('#avatar')">
-                            <div class="image-container rounded handing ani" style="height:200px;width:200px">
-                                <div class="frame bd-black">
-                                    <img src="<?php echo $this->baseUrl($_SESSION['avatar']) ?>" />
+                                <div class="image-container rounded handing ani" style="height:200px;width:200px">
+                                    <div class="frame bd-black">
+                                        <img src="<?php echo $this->baseUrl($_SESSION['avatar']) ?>" />
+                                    </div>
+                                </div></a>
+                                <div class="cell" style="padding-left:35px;padding-top:15px;border-top-style:solid;border-top-width:20px">
                                 </div>
-                            </div></a>
-                            <div class="cell" style="padding-left:35px;padding-top:15px;border-top-style:solid;border-top-width:20px">
                             </div>
-                        </div>
-                        <div class="cell flex-just-center" style="padding-bottom: 50px;margin-left: 80px;">
-                            <h4>Dados do Perfil</h4>
-                            <h4 style="border-bottom-style:groove;border-width:6px">Alterar Usuário ou Email</h4>
-                            <form id="dados" action="<?php echo $this->baseUrl('perfil/editar')?>" method="post">
-                                <input type="hidden" name="pass" value="<?php echo $_SESSION['pass'] ?>">
-                                <div class="input-control modern text iconic">
-                                    <input class="fg-white" type="text" name="user" id="user" value="<?php echo $_SESSION['user'] ?>" required>
-                                    <span class="icon mif-user"></span>
-                                     <div id="erroUser">
+                            <div class="cell flex-just-center" style="padding-bottom: 50px;margin-left: 80px;">
+                                <h4>Dados do Perfil</h4>
+                                <h4 style="border-bottom-style:groove;border-width:6px">Alterar Usuário ou Email</h4>
+                                <form id="dados" action="<?php echo $this->baseUrl('perfil/editar')?>" method="post">
+                                    <input type="hidden" name="pass" value="<?php echo $_SESSION['pass'] ?>">
+                                    <div class="input-control modern text iconic">
+                                        <input class="fg-white" type="text" name="user" id="user" value="<?php echo $_SESSION['user'] ?>" required>
+                                        <span class="icon mif-user"></span>
+                                        <div id="erroUser">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-control modern text iconic">
-                                    <input class="fg-white" type="text" name="email" id="email" value="<?php echo $_SESSION['email'] ?>" required>
-                                    <span class="icon mif-mail"></span>
-                                    <div id="erroEmail">
+                                    <div class="input-control modern text iconic">
+                                        <input class="fg-white" type="text" name="email" id="email" value="<?php echo $_SESSION['email'] ?>" required>
+                                        <span class="icon mif-mail"></span>
+                                        <div id="erroEmail">
+                                        </div>
                                     </div>
-                                </div>
-                                <input type="submit" class="button primary" value="Atualizar">
+                                    <input type="submit" class="button primary" value="Atualizar">
                                 </form>
-
                                 <div class="row">
                                     <div class="cell">
                                         <h4 style="border-bottom-style:groove;border-width:6px">Alterar Senha</h4>
                                         <form id="senha"  action="<?php echo $this->baseUrl('perfil/editar')?>" method="post">
-                                        <input type="hidden" name="user" value="<?php echo $_SESSION['user'] ?>">
-                                        <input type="hidden" name="email" value="<?php echo $_SESSION['email'] ?>">
-                                        <div class="input-control modern text iconic">
-                                            <input class="fg-white" type="password" value="<?php echo $_SESSION['pass'] ?>" data-validate-func="minlength" data-validate-arg="5" required>
-                                            <span class="icon mif-lock"></span>
-                                            <span class="label fg-white">Senha</span>
-                                            <span class="informer fg-white">Mínimo 5 dígitos</span>
-                                            <span class="input-state-error mif-warning"></span>
-                                            <span class="input-state-success mif-checkmark"></span>
-                                        </div>
-                                        <div class="input-control modern text iconic">
-                                            <input class="fg-white" type="password" name="pass" data-validate-func="minlength" data-validate-arg="5" required>
-                                            <span class="label fg-white">Confirme sua Senha</span>
-                                            <span class="informer fg-white">Mínimo 5 dígitos</span>
-                                            <span class="icon mif-lock"></span>
-                                            <span class="input-state-error mif-warning"></span>
-                                            <span class="input-state-success mif-checkmark"></span>
-                                        </div>
-                                        <input type="submit" class="button warning" value="Atualizar Senha">
+                                            <input type="hidden" name="user" value="<?php echo $_SESSION['user'] ?>">
+                                            <input type="hidden" name="email" value="<?php echo $_SESSION['email'] ?>">
+                                            <div class="input-control modern text iconic">
+                                                <input class="fg-white" type="password" value="<?php echo $_SESSION['pass'] ?>" data-validate-func="minlength" data-validate-arg="5" required>
+                                                <span class="icon mif-lock"></span>
+                                                <span class="label fg-white">Senha</span>
+                                                <span class="informer fg-white">Mínimo 5 dígitos</span>
+                                                <span class="input-state-error mif-warning"></span>
+                                                <span class="input-state-success mif-checkmark"></span>
+                                            </div>
+                                            <div class="input-control modern text iconic">
+                                                <input class="fg-white" type="password" name="pass" data-validate-func="minlength" data-validate-arg="5" required>
+                                                <span class="label fg-white">Confirme sua Senha</span>
+                                                <span class="informer fg-white">Mínimo 5 dígitos</span>
+                                                <span class="icon mif-lock"></span>
+                                                <span class="input-state-error mif-warning"></span>
+                                                <span class="input-state-success mif-checkmark"></span>
+                                            </div>
+                                            <input type="submit" class="button warning" value="Atualizar Senha">
                                         </form>
                                         
-                                    
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel collapsible collapsed danger" data-role="panel" >
-                        <div class="heading">
-                            <span class="title">Área de Perigo</span>
-                        </div>
-                        <div class="content">
-                        <br>
-                        <div id="confirma">
-                        <a id="erase" class="button danger">Apagar Conta</a>
-                        </div>
-                        <br>
+                        <div class="panel collapsible collapsed danger" data-role="panel" >
+                            <div class="heading">
+                                <span class="title">Área de Perigo</span>
+                            </div>
+                            <div class="content">
+                                <br>
+                                <div id="confirma">
+                                    <a id="erase" class="button danger">Apagar Conta</a>
+                                </div>
+                                <br>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,57 +84,52 @@
         </div>
     </div>
 </div>
-</div>
 <div style="width: auto; height: auto; visibility: visible;" data-role="dialog" id="avatar" class="padding20 dialog" data-close-button="true" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true">
-            <div class="flex-grid">
-                <div class="row cells2">
-                    <div class="cell size2">
-                        <h4>Do seu computador</h4>
-                        <form method="post" action="<?php echo $this->baseUrl('perfil/avatar')?>" enctype="multipart/form-data">
-                            <div class="input-control file" data-role="input">
-                                <input type="file" name="file">
-                                <button class="button"><span class="mif-folder"></span></button>
-                            </div>
+    <div class="flex-grid">
+        <div class="row cells2">
+            <div class="cell size2">
+                <h4>Do seu computador</h4>
+                <form method="post" action="<?php echo $this->baseUrl('perfil/avatar')?>" enctype="multipart/form-data">
+                    <div class="input-control file" data-role="input">
+                        <input type="file" name="file">
+                        <button class="button"><span class="mif-folder"></span></button>
                     </div>
-                    <div class="cell size6" style="margin-left:20px">
-                        <h4>Da internet:</h4>
-                        <div class="input-control" data-role="input">
-                            <input type="text" name="url">
-                        </div>
+                </div>
+                <div class="cell size6" style="margin-left:20px">
+                    <h4>Da internet:</h4>
+                    <div class="input-control" data-role="input">
+                        <input type="text" name="url">
                     </div>
                 </div>
             </div>
-            <div class="grid">
-                <div class="row">
-                    <div class="cell">
-                        <input type="submit" name="name" value="Enviar">
-                    </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <div class="cell">
+                    <input type="submit" name="submit" value="Alterar">
                 </div>
             </div>
-            </form>
-            <span class="dialog-close-button"></span></div>
-       
-<script type="text/javascript">
-    function showDialog(id) {
-                var dialog = $(id).data('avatar');
-                dialog.open();
-            };
-  $(function(){
-    $("#user").change(function(){   
-      $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificar/user/');?>' + $('#user').val());
-      $('#resultado').html(data);
+        </div>
+    </form>
+    <span class="dialog-close-button"></span></div>
+    
+    <script type="text/javascript">
+    $(function(){
+    $("#user").change(function(){
+    $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificar/user/');?>' + $('#user').val());
+    $('#resultado').html(data);
     });
     $("#email").change(function(){
-      $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificar/email/');?>' + $('#email').val());
-      $('#resultado').html(data);
+    $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificar/email/');?>' + $('#email').val());
+    $('#resultado').html(data);
     });
     $("#erase").click(function(){
-        $('#confirma').load('<?php echo $this->baseUrl('perfil/carrega') ?>');
-        $('#resultado').html(data);
-        
-    });      
+    $('#confirma').load('<?php echo $this->baseUrl('perfil/carrega') ?>');
+    $('#resultado').html(data);
     
-  });
-  </script>
-<!-- TODO: implementar foto de perfil-->
-<!-- TODO: Consertar FORM do perfil-->
+    });
+    });
+    </script>
+    
+    <!-- TODO: implementar foto de perfil-->
+    <!-- TODO: Consertar FORM do perfil-->

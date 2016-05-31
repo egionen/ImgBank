@@ -4,10 +4,12 @@ class IndexController extends Zend_Controller_Action
 {
   public function indexAction(){
 
-      $modelImg = new Application_Model_Img();
-      $rowset = $modelImg->fetchAll();
-      $this->view->dados = $rowset;
+      $modelImg = new Application_Model_Img();      
+      $rowset = $modelImg->getAll();
+      $this->view->dados = $rowset;  
+
   }
+  
 
   public function imgAction(){
     $request = $this->getRequest();

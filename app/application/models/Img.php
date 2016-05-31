@@ -15,10 +15,14 @@ class Application_Model_Img extends Zend_Db_Table
                     type: 'success'
                     });</script>";
 
-        }
+        }}
 
+    public function getAll(){
+    $select = $this->select();
+    $select->order('id_img DESC');
+           
 
-
-    }
+    return $this->fetchAll($select);
+}   
 
 }

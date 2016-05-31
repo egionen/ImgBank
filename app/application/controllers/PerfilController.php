@@ -84,11 +84,24 @@ class PerfilController extends Zend_Controller_Action{
     public function editarAction(){
 
     $dados = $this->_getAllParams();
+    $modelImg = new Application_Model_Img();
+    $modelUser = new Application_Model_User();
     unset($dados['controller']);
     unset($dados['action']);
     unset($dados['module']);
-    if(!empty($dados['id_img'])){
-        $modelImg = new Application_Model_Img();
+    
+    if($dados['submit'] == "Deletar"){
+
+        $modelImg->delete('id_img ='. $dados['id_img']);
+        $_SESSION['mensagem']= "<script>$.Notify({
+                                caption: 'Deletado',
+                                content: 'Imagem deletada com sucesso',
+                                type: 'success'
+                                });</script>";      
+        $this->redirect('index');  
+    }else{
+        unset($dados['submit']);
+        if(!empty($dados['id_img'])){
         $modelImg->update($dados, "id_img = ". $dados['id_img']);
         $_SESSION['mensagem'] = "<script>$.Notify({
                                 caption: 'Alterado',
@@ -96,17 +109,22 @@ class PerfilController extends Zend_Controller_Action{
                                 type: 'success'
                                 });</script>";
         $this->redirect('index/img/src/'.$dados['id_img']);
-    }
-
-    $modelUser = new Application_Model_User();
-    $modelUser->update($dados, "id_user = ".$_SESSION['id_user']);
-    $this->atualizarDados($dados);
-       
-    }
+        }else{
+            $modelUser->update($dados, "id_user = ".$_SESSION['id_user']);
+            $this->atualizarDados($dados);
+             $_SESSION['mensagem'] = "<script>$.Notify({
+                                caption: 'Alterado',
+                                content: 'Campos alterados com sucesso',
+                                type: 'success'
+                                });</script>";
+            $this->redirect('index');
+        }    
+    }}
 
     public function avatarAction(){
 
         $modelUser = new Application_Model_User();
+
 
         $dados = array(
             'id_user' => $_SESSION['id_user'],
@@ -129,8 +147,15 @@ class PerfilController extends Zend_Controller_Action{
         }
         $dados = array_replace($dados, $avatar);
         $modelUser->update($dados, 'id_user ='. $dados['id_user']);
-        $this->redirect('perfil/perfil');
+        $_SESSION['mensagem'] = "<script>$.Notify({
+          caption: 'Sucesso',
+          content: 'Avatar alterado com sucesso',
+          type: 'success'
+        });</script>";
+        $this->redirect('index');
+
         }
+
     public function atualizarDados($dados){
     $modelUser = new Application_Model_User();
     $row = $modelUser->fetchRow('user = "'. $dados['user'] .'" and pass = "'.$dados['pass'].'"');

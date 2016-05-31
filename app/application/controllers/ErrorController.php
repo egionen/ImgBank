@@ -23,7 +23,7 @@ class ErrorController extends Zend_Controller_Action
                 break;
             default:
                 // application error
-            $this->redirect('index');
+                $this->redirect('index');
                 $this->getResponse()->setHttpResponseCode(500);
                 $priority = Zend_Log::CRIT;
                 $this->view->message = 'Application error';

@@ -1,8 +1,8 @@
 <?php
-    if($_SESSION){
-        echo $_SESSION['mensagem'];
-        $_SESSION['mensagem'] = "";
-    }
+if($_SESSION){
+echo $_SESSION['mensagem'];
+$_SESSION['mensagem'] = "";
+}
 ?>
 <style type="text/css">
 	.input-control.modern{
@@ -12,36 +12,50 @@
 <div class="flex grid">
 	<div class="row cells2">
 		<div class="cell">
-		<a id="example1" href="<?php echo $this->baseUrl($this->rowimg['dir']) ?>"><img src="<?php echo $this->baseUrl($this->rowimg['dir']) ?>"/></a>
+			<a href="<?php echo $this->baseUrl($this->rowimg['dir']) ?>"><img src="<?php echo $this->baseUrl($this->rowimg['dir']) ?>"/></a>
 		</div>
 		<div class="cell index">
 			<form action="<?php echo $this->baseUrl('perfil/editar')?>">
-			<div class="input-control modern text">
-				<input type="hidden" name="id_img" value="<?php echo $this->rowimg['id_img']?>">
-				<input type="text" class="fg-white" name="nome" value="<?php echo $this->rowimg['nome']?>"/>
-			    <span class="label fg-white">Nome</span>			    
-			</div>
-			<?php 
-			if(!empty($_SESSION['id_user'])){
-
-			if($_SESSION['id_user'] == $this->rowimg['id_user']){
-				echo "<input class='button primary' type='submit' value='Alterar'>";
-			}}
-			?>
+				<div class="input-control modern text">
+					<input type="hidden" name="id_img" value="<?php echo $this->rowimg['id_img']?>">
+					<input type="text" class="fg-white" name="nome" value="<?php echo $this->rowimg['nome']?>"/>
+					<span class="label fg-white">Nome</span>
+				</div>
+				<div class="cell">
+					<?php
+					if(!empty($_SESSION['id_user'])){
+					if($_SESSION['id_user'] == $this->rowimg['id_user']){
+						echo "<input class='button primary' name='submit' type='submit' value='Alterar'>";
+						echo "<input class='button danger' name='submit' type='submit' value='Deletar'>";
+					}}
+				?></div>
 			</form>
 			<div class="input-control modern text">
+				<input type="hidden" id="link" value="<?php echo $this->baseUrl($this->rowimg['dir']) ?>">
 				<input type="text" class="fg-white" value="<?php echo $this->rowimg['dir']?>" readOnly/>
-				 <span class="label fg-white">Link</span>	   
+				<span class="label fg-white">Link</span>
+				<button  class="button warning btn"
+				onclick="$.Notify({
+				caption: 'Copiado!',
+				content: 'Link está na Área de Tranferência!',
+				type: 'success'
+				})" data-clipboard-text="<?php echo 'localhost'.$this->baseUrl($this->rowimg['dir']) ?>">
+				<span class="icon mif-share"></span>
+				</button>
 			</div>
-		<div>
+			<div>
 				<span class="fg-white">Autor :</span>
-				<span class="fg-white"><?php echo $this->rowuser['user']?></span>				
+				<span class="fg-white"><?php echo $this->rowuser['user']?></span>
 				<div class="image-container" style="height: 60px; padding-left: 180px;">
-				<div class="frame bg-grayDark">
-				<img src="<?php echo $this->baseUrl($this->rowuser['avatar']) ?> " style="border-radius: 50%;"/>
-				</div>
+					<div class="frame bg-grayDark">
+						<img src="<?php echo $this->baseUrl($this->rowuser['avatar']) ?> " style="border-radius: 50%;"/>
+					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
+<script>
+		new Clipboard('.btn');
+	
+</script>

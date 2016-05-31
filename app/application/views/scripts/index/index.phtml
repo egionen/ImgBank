@@ -1,37 +1,33 @@
 <?php
-    if($_SESSION){
-        echo $_SESSION['mensagem'];
-        $_SESSION['mensagem'] = "";
-    }
+if($_SESSION){
+echo $_SESSION['mensagem'];
+$_SESSION['mensagem'] = "";
+}
 $contador = 0;
-
 ?>
-    <div class="flex-grid">
-        <div class="row flex-just-center">
-            <div class="cell size6">
-                <h4 class="fg-white">Compartilhe e salve seus momentos preferidos</h4>
-            </div>
+<div class="flex-grid">
+    <div class="row flex-just-center" style="margin-bottom: -20px;margin-top: -30px;">
+        <div class="cell size8" style="text-align:right;padding-left: 150px;border-bottom: solid;border-color: #0ca8e3;">
+            <h4 class="fg-white"><span class="fg-pink">Compartilhe</span> e salve seus <span class="fg-blue">momentos preferidos</span></h4>
         </div>
     </div>
-
-    <div class="grid index">
-
-        <?php
-        
-            foreach($this->dados as $row){
-                if(substr($contador,-1) == 4){
-                    echo "</div>";
-                }if($contador % 4 == 0 or $contador == 0){
-                    echo "<div class='row cells4'>";
-                    $contador = 0;
-                }
-                echo "<div class='cell'>
-                <div class='image-container rounded'><a href='". $this->baseUrl('index/img/src/' . $row['id_img']) ."'>
-                    <img src='".$row['dir']."' style='height:150px;width:130px' /></a>
-                </div>
-            </div>";
-            $contador += 1;}
-        ?>
-    </div>
+</div>
+<div id="return" class="grid index">
+    <?php
     
-    <!-- TODO : Implementar Upload -->
+    foreach($this->dados as $row){
+    if(substr($contador,-1) == 4){
+        echo "</div>";
+        }if($contador % 4 == 0 or $contador == 0){
+            echo "<div class='row cells4'>";
+            $contador = 0;
+        }
+        echo 
+        "<div class='cell'>
+            <div class='image-container rounded'><a href='". $this->baseUrl('index/img/src/' . $row['id_img']) ."'>
+                <img src='".$row['dir']."' style='height:150px;width:130px' /></a>
+            </div>
+        </div>";
+        $contador += 1;}
+?>
+</div>

@@ -36,25 +36,23 @@
                 </div>
                 <div class="cell">
                     <p><span>Avatar :</span></p>
-                        <p>Do Computador :</p>
-                        <div class="input-control file" data-role="input">
-                            <input type="file" name="file">
-                            <button class="button"><span class="mif-folder"></span></button>
+                    <p>Do Computador :</p>
+                    <div class="input-control file" data-role="input">
+                        <input type="file" name="file">
+                        <button class="button"><span class="mif-folder"></span></button>
                     </div>
                     <p>Da Internet :</p>
                     <div class="input-control file" data-role="input">
-                         <div class="input-control" data-role="input">
+                        <div class="input-control" data-role="input">
                             <input type="text" name="url">
                         </div>
-                    </div>               
-            </div>
-            <input type="hidden" name="avatar">
+                    </div>
+                </div>
+                <input type="hidden" name="avatar">
                 <div class="cell">
                     <br>
                     <input class="button success block-shadow-success text-shadow fg-white" type="submit" name="name" value="Cadastrar">
                 </div>
-
-
             </form>
         </div>
         <div class="cell">
@@ -84,15 +82,15 @@
             </div>
         </div>
     </div>
-  <script type="text/javascript">
-  $(function(){
+    <script type="text/javascript">
+    $(function(){
     $("#user").change(function(){
-      $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificar/user/');?>' + $('#user').val());
-      $('#resultado').html(data);
+    $('#erroUser').load('<?php echo $this->baseUrl('perfil/verificar/user/');?>' + $('#user').val());
+    $('#resultado').html(data);
     });
     $("#email").change(function(){
-      $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificar/email/');?>' + $('#email').val());
-      $('#resultado').html(data);
+    $('#erroEmail').load('<?php echo $this->baseUrl('perfil/verificar/email/');?>' + $('#email').val());
+    $('#resultado').html(data);
     });
-  });
-  </script>
+    });
+    </script>
