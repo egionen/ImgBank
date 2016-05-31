@@ -6,7 +6,14 @@ class Application_Model_User extends Zend_Db_Table
     public function gravar($dados){
 
       $row = $this->createRow();
-      $row->setFromArray($dados);
+      if($row->setFromArray($dados)){
+      	$_SESSION['mensagem'] = "<script>$.Notify({
+    	caption: 'Opa!',
+    	content: 'Houve algum erro com o cadastro',
+    	type: 'danger'
+    	});</script>";
+
+      }
       $row->save();
 
     }

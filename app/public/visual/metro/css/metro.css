@@ -898,12 +898,13 @@ a.tag {
   margin: .625rem 0;
 }
 .index{
-  margin-right:100px;
-  margin-left:100px;
+  margin-right:90px;
+  margin-left:70px;
+  padding-left: 30px;
   margin-top:60px;
   border-style:solid;
   border-width:10px;
-  border-color:	#333333;
+  border-color:    #333333;
   background-color: #333333;
   border-radius:15px;
 }

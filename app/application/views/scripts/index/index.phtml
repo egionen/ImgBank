@@ -1,7 +1,10 @@
 <?php
     if($_SESSION){
         echo $_SESSION['mensagem'];
+        $_SESSION['mensagem'] = "";
     }
+$contador = 0;
+
 ?>
     <div class="flex-grid">
         <div class="row flex-just-center">
@@ -10,61 +13,25 @@
             </div>
         </div>
     </div>
-    <div class="grid index">
-        <div class="row cells5">
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-        </div>
-        <div class="row cells5">
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
-            <div class="cell">
-                <div class="image-container rounded">
-                    <img src="http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg" style="height:150px" />
-                </div>
-            </div>
 
-        </div>
+    <div class="grid index">
+
+        <?php
+        
+            foreach($this->dados as $row){
+                if(substr($contador,-1) == 4){
+                    echo "</div>";
+                }if($contador % 4 == 0 or $contador == 0){
+                    echo "<div class='row cells4'>";
+                    $contador = 0;
+                }
+                echo "<div class='cell'>
+                <div class='image-container rounded'><a href='". $this->baseUrl('index/img/src/' . $row['id_img']) ."'>
+                    <img src='".$row['dir']."' style='height:150px;width:130px' /></a>
+                </div>
+            </div>";
+            $contador += 1;}
+        ?>
     </div>
+    
     <!-- TODO : Implementar Upload -->

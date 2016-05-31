@@ -1,0 +1,47 @@
+<?php
+    if($_SESSION){
+        echo $_SESSION['mensagem'];
+        $_SESSION['mensagem'] = "";
+    }
+?>
+<style type="text/css">
+	.input-control.modern{
+		width:70%;
+	}
+</style>
+<div class="flex grid">
+	<div class="row cells2">
+		<div class="cell">
+		<a id="example1" href="<?php echo $this->baseUrl($this->rowimg['dir']) ?>"><img src="<?php echo $this->baseUrl($this->rowimg['dir']) ?>"/></a>
+		</div>
+		<div class="cell index">
+			<form action="<?php echo $this->baseUrl('perfil/editar')?>">
+			<div class="input-control modern text">
+				<input type="hidden" name="id_img" value="<?php echo $this->rowimg['id_img']?>">
+				<input type="text" class="fg-white" name="nome" value="<?php echo $this->rowimg['nome']?>"/>
+			    <span class="label fg-white">Nome</span>			    
+			</div>
+			<?php 
+			if(!empty($_SESSION['id_user'])){
+
+			if($_SESSION['id_user'] == $this->rowimg['id_user']){
+				echo "<input class='button primary' type='submit' value='Alterar'>";
+			}}
+			?>
+			</form>
+			<div class="input-control modern text">
+				<input type="text" class="fg-white" value="<?php echo $this->rowimg['dir']?>" readOnly/>
+				 <span class="label fg-white">Link</span>	   
+			</div>
+		<div>
+				<span class="fg-white">Autor :</span>
+				<span class="fg-white"><?php echo $this->rowuser['user']?></span>				
+				<div class="image-container" style="height: 60px; padding-left: 180px;">
+				<div class="frame bg-grayDark">
+				<img src="<?php echo $this->baseUrl($this->rowuser['avatar']) ?> " style="border-radius: 50%;"/>
+				</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
